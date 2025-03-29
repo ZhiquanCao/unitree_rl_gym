@@ -9,8 +9,12 @@ from legged_gym.envs.g1.g1_config import G1RoughCfg, G1RoughCfgPPO
 from legged_gym.envs.g1.g1_env import G1Robot
 from .base.legged_robot import LeggedRobot
 
+from legged_gym.envs.humanoid.humanoid_config import Step10DofCfg, Step10DofCfgPPO
+from legged_gym.envs.humanoid.humanoid_env import Step10DofFreeEnv
+
 from legged_gym.utils.task_registry import task_registry
 
+task_registry.register( "humanoid", Step10DofFreeEnv, Step10DofCfg(), Step10DofCfgPPO())
 task_registry.register( "go2", LeggedRobot, GO2RoughCfg(), GO2RoughCfgPPO())
 task_registry.register( "h1", H1Robot, H1RoughCfg(), H1RoughCfgPPO())
 task_registry.register( "h1_2", H1_2Robot, H1_2RoughCfg(), H1_2RoughCfgPPO())
